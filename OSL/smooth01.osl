@@ -1,0 +1,12 @@
+shader smooth01
+(
+	float input = 0.0
+	[[ string label = "in"]],
+
+	output float out = 0.0
+	[[string label = "out"]]
+)
+
+{
+	out = smoothstep(0,1,input);
+}

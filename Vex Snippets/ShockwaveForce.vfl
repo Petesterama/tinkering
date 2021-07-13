@@ -1,0 +1,48 @@
+vector origin = set(0,0,0);
+vector P = v@P;
+float dist = distance(P,origin);
+float radius = chf("radius");
+float softness = chf("softness");
+float softPower = chf("softPower");
+float width = 1;
+
+float shockwaveForce = 50;
+float falloffDist = 50;
+int previewMask = 0;
+
+float inner;
+float outer;
+
+//INNER
+float iRadius = radius + (width/2);
+if (dist <= iRadius){
+    inner = 1;
+    }
+    
+else if (dist <= iRadius + softness) {
+    inner = pow( 1 -(dist - iRadius)/softness, softPower) ;
+    }
+    
+//OUTER
+float oRadius = radius - (width/2) ;
+if (dist <= oRadius){
+    outer = 1;
+    }
+    
+else if (dist <= oRadius + softness){
+    outer = pow( 1 -(dist - oRadius)/softness, softPower) ;
+    }
+    
+
+float waveMask = inner - outer;
+
+v@force = normalize(v@P)
+        * waveMask 
+        * (clamp( (falloffDist-dist), 0, falloffDist)/falloffDist) 
+        * shockwaveForce ;
+
+if (previewMask) {
+    v@Cd = waveMask + .25;
+    }
+
+

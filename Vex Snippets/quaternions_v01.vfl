@@ -1,0 +1,6 @@
+vector tu = v@tangentu;
+float angle = atan2(tu.x, tu.z);
+
+float extraRot = radians(chf('extraRotation'));
+
+@orient = quaternion(angle + extra rot, {0,1,0} );
