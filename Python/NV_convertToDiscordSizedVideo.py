@@ -1,3 +1,8 @@
+# intended to be used with a drag drop registry key edit thing.
+# Will convert whatever video file is dropped onto the script into a small mp4.
+# Uses FFMPEG and NVENC encoder
+
+
 import os
 import sys
 import subprocess
