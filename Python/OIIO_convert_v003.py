@@ -1,3 +1,6 @@
+# Custom OIIO convert which spools up a bunch of threads to speed up conversion.
+
+
 import os.path
 import subprocess
 import math

@@ -1,3 +1,5 @@
+// Cheeky bifurcation setup, inspired by a Veritasium video, something about fractals?
+
 float r = chf("growth_rate");
 float n = .01;
 
