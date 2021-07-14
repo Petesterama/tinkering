@@ -16,5 +16,4 @@ elif in_ext == "mp4":
 
 print(outfile)
 
-#subprocess.call( ["ffmpeg", "-i", infile, "-c:v", "h264_nvenc", "-b:v", "5M", "-vf", "scale=1280:720", outfile ] ) # low quality
 subprocess.call( ["ffmpeg", "-i", infile, "-c:v", "h264_nvenc", "-b:v", "10M", outfile ] ) # high quality
