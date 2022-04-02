@@ -7,8 +7,8 @@ import time
 photos_folder = os.path.abspath("D:/Photos")
 ingest_folder = os.path.abspath("D:/Photos/INGEST")
 
-photos_folder = os.path.abspath("D:/Photos/SCRIPT_TEST")
-ingest_folder = os.path.abspath("D:/Photos/INGEST_TEST")
+# photos_folder = os.path.abspath("D:/Photos/SCRIPT_TEST")
+# ingest_folder = os.path.abspath("D:/Photos/INGEST_TEST")
 
 class Photo:
     def __init__(self, file, filepath, date):
@@ -22,6 +22,7 @@ class Folder:
         self.folderpath = folderpath
         self.exists = os.path.exists(self.folderpath)
         self.photos = []
+                    
  
 
 
@@ -43,19 +44,23 @@ for file in files:
 folders = []
 
 for photo in photos:
-    folderpath = os.path.join(photos_folder, photo.date)
+    folderpath = os.path.abspath(os.path.join(photos_folder, photo.date))     # Folderpath is photos folder + the photo's date
 
-    if not any(folderpath in folder.folderpath for folder in folders):
-        folders.append( Folder(photo.date, folderpath) )
+    if not any(folderpath in folder.folderpath for folder in folders):        # If the folderpath doesn't exist in any of the folders
+        folders.append( Folder(photo.date, folderpath) )                      # Make a new folder
     
     for folder in folders:
         if folderpath == folder.folderpath:
             folder.photos.append(photo)
 
-for folder in folders:
-    print(folder.folderpath)
-    print([photo.file for photo in folder.photos])
 
 for folder in folders:
-    shutil.    
-# print([folder.folderpath for folder in folders])
+
+    if not folder.exists:
+            os.mkdir(folder.folderpath)
+    
+    for photo in folder.photos:
+        shutil.move(photo.filepath, os.path.join(folder.folderpath, photo.file))
+
+
+
