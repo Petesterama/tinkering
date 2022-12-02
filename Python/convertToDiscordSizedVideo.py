@@ -11,4 +11,4 @@ elif in_ext == "mp4":
 
 print(outfile)
 
-subprocess.call( ["ffmpeg", "-i", infile, "-c:v", "libx264", "-crf", "22", "-pix_fmt", "yuv420p", "-preset", "slow", "-vf", "scale=1280:720", outfile ] )
+subprocess.call( ["ffmpeg", "-i", infile, "-c:v", "libx264", "-crf", "22", "-pix_fmt", "yuv420p", "-preset", "slow",  outfile ] )

@@ -39,6 +39,10 @@ class Human:
 
 
 peter = Human(25,74.6,"Male", 177)
+ayla = Human(25,50,"Female", 164.5)
+
+cat = 5
+dog = "tree"
 
 
 #print("BMI is {}, life expectancy is {}".format(peter.calcBmi(), peter.lifeExpectancy()))
