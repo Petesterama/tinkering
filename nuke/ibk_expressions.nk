@@ -1,0 +1,1045 @@
+set cut_paste_input [stack 0]
+version 13.2 v1
+BackdropNode {
+ inputs 0
+ name BackdropNode20
+ tile_color 0x232323ff
+ label "IBK expressions\n(hey Jimbo)"
+ note_font_size 42
+ selected true
+ xpos -21708
+ ypos 17514
+ bdwidth 1764
+ bdheight 1693
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode21
+ tile_color 0x7171c600
+ label original
+ note_font_size 42
+ selected true
+ xpos -21521
+ ypos 18784
+ bdwidth 241
+ bdheight 236
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode22
+ tile_color 0x7171c600
+ label fixed..?
+ note_font_size 42
+ selected true
+ xpos -21206
+ ypos 18780
+ bdwidth 241
+ bdheight 236
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode23
+ tile_color 0x474747ff
+ note_font_size 42
+ selected true
+ xpos -21525
+ ypos 17789
+ bdwidth 449
+ bdheight 791
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode24
+ tile_color 0x474747ff
+ label "all in one"
+ note_font_size 42
+ selected true
+ xpos -20994
+ ypos 18298
+ bdwidth 327
+ bdheight 247
+ z_order 1
+}
+push $cut_paste_input
+MergeExpression {
+ expr3 (Ab-Ar*rw-Ag*gbw)>=0?1:clamp(1-(Ab-Ar*rw-Ag*gbw)/(Bb-Br*rw-Bg*gbw))
+ name MergeExpression1
+ tile_color 0xff01
+ label "IBKGizmo\nBLUE"
+ selected true
+ xpos -21378
+ ypos 18873
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
+MergeExpression {
+ inputs 0
+ expr3 "screen_Type==0 ? (Ag-Ar*rw-Ab*gbw)>=0?1:clamp(1-(Ag-Ar*rw-Ab*gbw)/(Bg-Br*rw-Bb*gbw)) : (Ab-Ar*rw-Ag*gbw)>=0?1:clamp(1-(Ab-Ar*rw-Ag*gbw)/(Bb-Br*rw-Bg*gbw))"
+ name MergeExpression3
+ tile_color 0x990000
+ label IBKGizmo
+ selected true
+ xpos -21434
+ ypos 18956
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {4 screen_Type l "screen type" M {Green Blue}}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
+Reformat {
+ inputs 0
+ format "3840 2160 0 0 3840 2160 1 UHD_4K"
+ name Reformat23
+ selected true
+ xpos -20303
+ ypos 17565
+}
+Roto {
+ cliptype none
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x45350000 x4497b000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {curvegroup Ellipse1 512 bezier
+     {{cc
+       {f 8192}
+       {px x44952000
+        {xc3b2f0b0 0}
+        {x45590664 x44089998}
+        {x43b2f0b0 0}
+        {0 xc3b2f0b4}
+        {x4580c332 x44954ccc}
+        {0 x43b2f0b4}
+        {x43b2f0b0 0}
+        {x45590664 x44e64ccc}
+        {xc3b2f0b0 0}
+        {0 x43b2f0b4}
+        {x45308664 x44954ccc}
+        {0 xc3b2f0b4}}}
+      {cc
+       {f 8192}
+       {px x44952000
+        {xc3b2f0b0 0}
+        {0 0}
+        {x43b2f0b0 0}
+        {0 xc3b2f0b4}
+        {0 0}
+        {0 x43b2f0b4}
+        {x43b2f0b0 0}
+        {0 0}
+        {xc3b2f0b0 0}
+        {0 x43b2f0b4}
+        {0 0}
+        {0 xc3b2f0b4}}}}
+     {tx x44952000 x4516c000 x44ce8000}
+     {a fx x43200000 fy x43200000 osw x41200000 osf 0 str 1 spx x45350000 spy x4497b000 sb 1 ltn x44952000 ltm x44952000 tt x40e00000}}}}}}
+ toolbox {selectAll {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 tt 4 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 tt 7 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_brush_hardness 0.200000003
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {2896 1213.5}
+ colorOverlay {0 0 0 0}
+ lifetime_type "all frames"
+ lifetime_start 1193
+ lifetime_end 1193
+ motionblur_shutter_offset_type centred
+ feather 160
+ source_black_outside true
+ name Roto14
+ selected true
+ xpos -20303
+ ypos 17601
+}
+Grade {
+ channels rgba
+ white {1 0.499457 0.253409 1}
+ white_panelDropped true
+ unpremult rgba.alpha
+ name Grade36
+ selected true
+ xpos -20303
+ ypos 17625
+}
+RotoPaint {
+ cliptype none
+ curves {{{v x3f99999a}
+  {f 0}
+  {n
+   {layer Root
+    {f 2097152}
+    {t x45350000 x4497b000}
+    {a pt1x 0 pt1y 0 pt2x 0 pt2y 0 pt3x 0 pt3y 0 pt4x 0 pt4y 0 ptex00 0 ptex01 0 ptex02 0 ptex03 0 ptex10 0 ptex11 0 ptex12 0 ptex13 0 ptex20 0 ptex21 0 ptex22 0 ptex23 0 ptex30 0 ptex31 0 ptex32 0 ptex33 0 ptof1x 0 ptof1y 0 ptof2x 0 ptof2y 0 ptof3x 0 ptof3y 0 ptof4x 0 ptof4y 0 pterr 0 ptrefset 0 ptmot x40800000 ptref 0}
+    {cubiccurve Brush1 512 catmullrom
+     {cc
+      {f 2080}
+      {px x44952000
+       {x447c8000 x4509a000 x3e126125}
+       {x44834000 x4509a000 x3deb41d7}
+       {x44900000 x45074000 x3dd741af}
+       {x44924000 x4506c000 x3de501ca}
+       {x44a30000 x45048000 x3e0a6115}
+       {x44b28000 x45004000 x3e004101}
+       {x44b5c000 x44fcc000 x3dfa81f5}
+       {x44b70000 x44fa8000 x3dfec1fe}
+       {x44b8c000 x44ef8000 x3e01e104}
+       {x44b88000 x44ec8000 x3e01e104}
+       {x44af0000 x44d74000 x3e0b4117}
+       {x449a0000 x44bec000 x3e348169}
+       {x44958000 x44ba4000 x3e3b4177}
+       {x44790000 x449e4000 x3e68a1d1}
+       {x44690000 x448ac000 x3e825105}
+       {x446b8000 x44898000 x3e80f102}
+       {x44868000 x44874000 x3e6d81db}
+       {x449f8000 x44888000 x3e79c1f4}
+       {x44a3c000 x4487c000 x3e7de1fc}
+       {x44b98000 x44748000 x3e886111}
+       {x44bc4000 x446d8000 x3e894113}
+       {x44ca0000 x44438000 x3e8c3118}
+       {x44d9c000 x44180000 x3e8c5119}
+       {x44f00000 x43d50000 x3e82f106}
+       {x44f34000 x43ca0000 x3e811102}
+       {x45034000 x439f0000 x3e5da1bb}
+       {x45082000 x43960000 x3de181c3}
+       {x45084000 x439c0000 x3a800100}}}
+     {tx x44952000 x44b2a6db x44a67000}
+     {a r x3ec792c0 g x3f08cbee ro 0 go 0 bo 0 ao 0 bs x43170000 bu 1 str 1 spx x45350000 spy x4497b000 sb 1 ltn x44952000 ltm x44952000 tt x41880000}}}}}}
+ toolbox {brush {
+  { selectAll str 1 ssx 1 ssy 1 sf 1 }
+  { createBezier str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBezierCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createBSpline str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createEllipse str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangle str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { createRectangleCusped str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { brush r 0.389791 g 0.534362 bs 151 str 1 ssx 1 ssy 1 sf 1 sb 1 ltn 1193 ltm 1193 tt 17 }
+  { eraser src 2 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { clone src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { reveal src 3 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { dodge src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { burn src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { blur src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { sharpen src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+  { smear src 1 str 1 ssx 1 ssy 1 sf 1 sb 1 }
+} }
+ toolbar_paint_color {0.3897914886 0.5343617201 1 1}
+ toolbar_brush_size 151
+ toolbar_brush_hardness 0.200000003
+ toolbar_lifetime_type single
+ toolbar_source_transform_scale {1 1}
+ toolbar_source_transform_center {2896 1213.5}
+ color {0.3897914886 0.5343617201 1 1}
+ colorOverlay {0 0 0 0}
+ lifetime_start 1193
+ lifetime_end 1193
+ brush_size 151
+ brush_spacing 0.05000000075
+ brush_hardness 0.200000003
+ source_black_outside true
+ name RotoPaint2
+ selected true
+ xpos -20303
+ ypos 17689
+}
+Constant {
+ inputs 0
+ channels rgb
+ color {0.09108 0.636 0.09108 0}
+ color_panelDropped true
+ format "3840 2160 0 0 3840 2160 1 UHD_4K"
+ name Constant3
+ selected true
+ xpos -20595
+ ypos 17563
+}
+Dot {
+ name Dot55
+ selected true
+ xpos -20561
+ ypos 17667
+}
+set N3a266000 [stack 0]
+Noise {
+ replace true
+ size 2250
+ zoffset 3.38
+ lacunarity 1.15
+ center {2896 1213.5}
+ name Noise11
+ selected true
+ xpos -20721
+ ypos 17686
+}
+push $N3a266000
+Merge2 {
+ inputs 2
+ operation multiply
+ mix 0.65
+ name Merge7
+ selected true
+ xpos -20595
+ ypos 17749
+}
+set N34d07400 [stack 0]
+Merge2 {
+ inputs 2
+ name Merge34
+ selected true
+ xpos -20303
+ ypos 17749
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ fromInput2 {{0} B}
+ mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle20
+ label "\[value in1] -> \[value out1]"
+ selected true
+ xpos -20303
+ ypos 17802
+}
+Dot {
+ name Dot58
+ selected true
+ xpos -20269
+ ypos 17914
+}
+set N1ebf4800 [stack 0]
+OFXuk.co.thefoundry.keylight.keylight_v201 {
+ show "Final Result"
+ unPreMultiply false
+ screenColour {0.04307866842 0.3008128405 0.04307866842}
+ screenGain 1
+ screenBalance 0.5
+ alphaBias {1 0.4994570017 0.2534089983}
+ despillBias {0.5 0.5 0.5}
+ gangBiases true
+ preBlur 0
+ "Screen Matte" 0
+ screenClipMin 0
+ screenClipMax 1
+ screenClipRollback 0
+ screenGrowShrink 0
+ screenSoftness 0
+ screenDespotBlack 0
+ screenDespotWhite 0
+ screenReplaceMethod "Soft Colour"
+ screenReplaceColour {0.5 0.5 0.5}
+ Tuning 0
+ midPoint 0.5
+ lowGain 1
+ midGain 1
+ highGain 1
+ "Inside Mask" 0
+ sourceAlphaHandling Ignore
+ insideReplaceMethod "Soft Colour"
+ insideReplaceColour {0.5 0.5 0.5}
+ Crops 0
+ SourceXMethod Colour
+ SourceYMethod Colour
+ SourceEdgeColour 0
+ SourceCropL 0
+ SourceCropR 1
+ SourceCropB 0
+ SourceCropT 1
+ balanceSet false
+ insideComponent None
+ outsideComponent None
+ cacheBreaker true
+ name Keylight1
+ selected true
+ xpos -20076
+ ypos 18061
+}
+NoOp {
+ name NoOp4
+ selected true
+ xpos -20076
+ ypos 18461
+}
+push $N34d07400
+Dot {
+ name Dot59
+ selected true
+ xpos -20561
+ ypos 17902
+}
+set N1ebf4400 [stack 0]
+push $N1ebf4800
+Group {
+ inputs 2
+ name PxF_ScreenClean
+ help "Clean chroma key background imperfections using a clean plate."
+ tile_color 0x733520ff
+ selected true
+ xpos -20201
+ ypos 18067
+ addUserKnob {20 User}
+ addUserKnob {4 screen_type l ScreenType t "The color of the chroma key background." M {Red Green Blue "" "" ""}}
+ screen_type Green
+ addUserKnob {18 screen_color l ScreenColor t "The color that will be used to repair the chroma key background (usually the average color of the greenscreen on the plate).\n\nWhen using the color picker, use Ctrl+Alt+Shift to avoid looping values."}
+ screen_color {0.04329211637 0.3023033142 0.04329211637}
+ addUserKnob {6 screen_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {7 mix t "Dissolve between the original (0) and the full effect (1)."}
+ mix 1
+ addUserKnob {26 ""}
+ addUserKnob {26 Credits l "" t "PxF_ScreenClean 2.0.4 - &copy; 2012-2023 - Xavier Bourque - pixelfudger.com \n\nPixelfudger gizmos are free to use for personal and commercial use as long as you leave the credit text intact in the gizmo's knobs and in the source files. " +STARTLINE T "<font size=2>PxF_ScreenClean 2.0.4 - &copy; 2012-2023 - </font><a href=\"http://www.xavierbourque.com\"><font color=\"#bbbbbb\" size=2>Xavier Bourque</a></font> - <a href=\"http://www.pixelfudger.com\"><font color=\"#bbbbbb\" size=2>pixelfudger.com</a></font> - <a href=\"http://www.pixelfudger.com/userguides/PxF_ScreenClean.html\"><font color=\"#bbbbbb\" size=2>Video Tutorial</a></font>"}
+}
+ Input {
+  inputs 0
+  name mask
+  xpos 419
+  ypos 274
+  number 2
+ }
+ Input {
+  inputs 0
+  name plate
+  xpos 203
+  ypos -448
+ }
+ Dot {
+  name Dot1
+  xpos 209
+  ypos -347
+ }
+set Nd1ddcc00 [stack 0]
+ Dot {
+  name Dot2
+  xpos -64
+  ypos -202
+ }
+ Dot {
+  name Dot3
+  xpos -57
+  ypos 214
+ }
+set Nd1ddc400 [stack 0]
+push $Nd1ddc400
+push $Nd1ddcc00
+ Shuffle {
+  red blue
+  green blue
+  alpha black
+  name Blue
+  xpos 203
+  ypos -187
+ }
+set Nff14fc00 [stack 0]
+push $Nd1ddcc00
+ Shuffle {
+  red green
+  blue green
+  alpha black
+  name Green
+  xpos 112
+  ypos -179
+ }
+set Nff14f800 [stack 0]
+push $Nd1ddcc00
+ Shuffle {
+  green red
+  blue red
+  alpha black
+  name Red
+  xpos 17
+  ypos -180
+ }
+set Nff14f400 [stack 0]
+ Switch {
+  inputs 3
+  which {{screen_type i x1 0}}
+  name High
+  xpos 17
+  ypos -99
+ }
+push $Nff14f800
+push $Nff14f400
+ Switch {
+  inputs 2
+  which {{"screen_type == 0 ? 1 : screen_type == 1 ? 0 : 0" i x1 0}}
+  name LowA
+  xpos 145
+  ypos -108
+ }
+push $Nff14fc00
+push $Nff14f800
+push 0
+ Switch {
+  inputs 3
+  which {{"screen_type == 0 ? 2 : screen_type == 1 ? 2 : 1" i x1 1}}
+  name LowB
+  xpos 261
+  ypos -107
+ }
+ Merge2 {
+  inputs 2
+  operation max
+  name Merge1
+  xpos 217
+  ypos -59
+ }
+ Merge2 {
+  inputs 2
+  operation minus
+  name Merge2
+  xpos 116
+  ypos -20
+ }
+ Input {
+  inputs 0
+  name clean_plate
+  xpos 462
+  ypos -437
+  number 1
+ }
+ Dot {
+  name Dot4
+  xpos 530
+  ypos -235
+ }
+set Nff14d800 [stack 0]
+ Shuffle {
+  red blue
+  green blue
+  alpha black
+  name Blue1
+  xpos 570
+  ypos -194
+ }
+set Nff14d400 [stack 0]
+push $Nff14d800
+ Shuffle {
+  red green
+  blue green
+  alpha black
+  name Green1
+  xpos 481
+  ypos -195
+ }
+set Nff14d000 [stack 0]
+push $Nff14d800
+ Shuffle {
+  green red
+  blue red
+  alpha black
+  name Red1
+  xpos 382
+  ypos -194
+ }
+set Nff14cc00 [stack 0]
+ Switch {
+  inputs 3
+  which {{screen_type i x1 0}}
+  name High1
+  xpos 401
+  ypos -130
+ }
+push $Nff14d000
+push $Nff14cc00
+ Switch {
+  inputs 2
+  which {{"screen_type == 0 ? 1 : screen_type == 1 ? 0 : 0" i}}
+  name LowA1
+  xpos 498
+  ypos -131
+ }
+push $Nff14d400
+push $Nff14d000
+push 0
+ Switch {
+  inputs 3
+  which {{"screen_type == 0 ? 2 : screen_type == 1 ? 2 : 1" i}}
+  name LowB1
+  xpos 592
+  ypos -128
+ }
+ Merge2 {
+  inputs 2
+  operation max
+  name Merge3
+  xpos 532
+  ypos -73
+ }
+ Merge2 {
+  inputs 2
+  operation minus
+  name Merge4
+  xpos 429
+  ypos -19
+ }
+ Merge2 {
+  inputs 2
+  operation divide
+  name Merge5
+  xpos 309
+  ypos 87
+ }
+ Clamp {
+  name Clamp1
+  xpos 309
+  ypos 114
+ }
+push $Nff14d800
+ Dot {
+  name Dot5
+  xpos 720
+  ypos -198
+ }
+push $Nd1ddcc00
+ Dot {
+  name Dot7
+  xpos 845
+  ypos -231
+ }
+ ColorCorrect {
+  gain 0
+  offset {{screen_color.r} {screen_color.g} {screen_color.b} {1}}
+  name ColorCorrect1
+  selected true
+  xpos 817
+  ypos -159
+  postage_stamp true
+ }
+ Merge2 {
+  inputs 2
+  operation minus
+  name Merge6
+  xpos 692
+  ypos -24
+ }
+ Dot {
+  name Dot6
+  xpos 688
+  ypos 165
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge7
+  xpos 309
+  ypos 166
+ }
+ Merge2 {
+  inputs 2
+  operation minus
+  name Merge8
+  xpos 309
+  ypos 215
+ }
+ Keymix {
+  inputs 3
+  invertMask true
+  bbox B
+  name Keymix1
+  xpos 309
+  ypos 299
+  disable {{"\[exists parent.input2] ? 0 : 1" i x1 0}}
+ }
+push $Nd1ddc400
+ Dissolve {
+  inputs 2
+  which {{parent.mix}}
+  name Dissolve1
+  xpos 309
+  ypos 403
+ }
+ Output {
+  name Output1
+  xpos 309
+  ypos 503
+ }
+end_group
+OFXuk.co.thefoundry.keylight.keylight_v201 {
+ show "Final Result"
+ unPreMultiply false
+ screenColour {0.04329211637 0.3023033142 0.04329211637}
+ screenGain 1
+ screenBalance 0.5
+ alphaBias {1 0.4994570017 0.2534089983}
+ despillBias {0.5 0.5 0.5}
+ gangBiases true
+ preBlur 0
+ "Screen Matte" 0
+ screenClipMin 0
+ screenClipMax 1
+ screenClipRollback 0
+ screenGrowShrink 0
+ screenSoftness 0
+ screenDespotBlack 0
+ screenDespotWhite 0
+ screenReplaceMethod "Soft Colour"
+ screenReplaceColour {0.5 0.5 0.5}
+ Tuning 0
+ midPoint 0.5
+ lowGain 1
+ midGain 1
+ highGain 1
+ "Inside Mask" 0
+ sourceAlphaHandling Ignore
+ insideReplaceMethod "Soft Colour"
+ insideReplaceColour {0.5 0.5 0.5}
+ Crops 0
+ SourceXMethod Colour
+ SourceYMethod Colour
+ SourceEdgeColour 0
+ SourceCropL 0
+ SourceCropR 1
+ SourceCropB 0
+ SourceCropT 1
+ balanceSet true
+ insideComponent None
+ outsideComponent None
+ cacheBreaker true
+ name Keylight2
+ selected true
+ xpos -20201
+ ypos 18163
+}
+NoOp {
+ name NoOp3
+ selected true
+ xpos -20201
+ ypos 18462
+}
+push $N1ebf4800
+push $N1ebf4400
+MergeExpression {
+ inputs 2
+ expr3 "(Ag-Ar*rw-Ab*gbw)<=0 ? 1:clamp(1-(Ag-Ar*rw-Ab*gbw)/(Bg-Br*rw-Bb*gbw))"
+ name MergeExpression5
+ tile_color 0x990000
+ label "IBKGizmo\nGREEN"
+ selected true
+ xpos -20498
+ ypos 18048
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+}
+set N3a265400 [stack 0]
+push $N3a265400
+push $N1ebf4400
+Merge2 {
+ inputs 2
+ operation stencil
+ name Merge36
+ selected true
+ xpos -20595
+ ypos 18060
+}
+push $N1ebf4800
+Merge2 {
+ inputs 2
+ operation from
+ name Merge35
+ selected true
+ xpos -20595
+ ypos 18195
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy5
+ selected true
+ xpos -20498
+ ypos 18246
+}
+NoOp {
+ name NoOp2
+ selected true
+ xpos -20498
+ ypos 18461
+}
+push $N1ebf4400
+push $N1ebf4800
+IBKGizmoV3 {
+ inputs 2
+ name IBKGizmoV3_1
+ xpos -20344
+ ypos 18066
+ st C-green
+}
+NoOp {
+ name NoOp1
+ selected true
+ xpos -20337
+ ypos 18463
+}
+MergeExpression {
+ inputs 0
+ expr3 (Ag-Ar*rw-Ab*gbw)>=0?1:clamp(1-(Ag-Ar*rw-Ab*gbw)/(Bg-Br*rw-Bb*gbw))
+ name MergeExpression2
+ tile_color 0x990000
+ label "IBKGizmo\nGREEN"
+ selected true
+ xpos -21484
+ ypos 18871
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
+MergeExpression {
+ inputs 0
+ expr3 "screen_Type==0 ? (Ag-Ar*rw-Ab*gbw)<=0?1:clamp(1-(Ag-Ar*rw-Ab*gbw)/(Bg-Br*rw-Bb*gbw)) : (Ab-Ar*rw-Ag*gbw)<=0?1:clamp(1-(Ab-Ar*rw-Ag*gbw)/(Bb-Br*rw-Bg*gbw))"
+ name MergeExpression8
+ tile_color 0x990000
+ label IBKGizmo
+ selected true
+ xpos -21116
+ ypos 18955
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {4 screen_Type l "screen type" M {Green Blue}}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
+MergeExpression {
+ inputs 0
+ expr3 (Ab-Ar*rw-Ag*gbw)<=0?1:clamp(1-(Ab-Ar*rw-Ag*gbw)/(Bb-Br*rw-Bg*gbw))
+ name MergeExpression7
+ tile_color 0xff01
+ label "IBKGizmo\nBLUE"
+ selected true
+ xpos -21063
+ ypos 18869
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
+push $N1ebf4800
+PostageStamp {
+ name PostageStamp3
+ selected true
+ xpos -21248
+ ypos 17887
+ postage_stamp true
+}
+Dot {
+ name Dot60
+ selected true
+ xpos -21214
+ ypos 18060
+}
+set Ncef12000 [stack 0]
+Expression {
+ temp_name0 rw
+ temp_expr0 .5
+ temp_name1 gbw
+ temp_expr1 .5
+ expr3 g-r*rw-b*gbw
+ name Expression4
+ selected true
+ xpos -21336
+ ypos 18057
+}
+push $N1ebf4400
+PostageStamp {
+ name PostageStamp2
+ selected true
+ xpos -21465
+ ypos 17875
+ postage_stamp true
+}
+set N3a265c00 [stack 0]
+Expression {
+ temp_name0 rw
+ temp_expr0 .5
+ temp_name1 gbw
+ temp_expr1 .5
+ expr3 g-r*rw-b*gbw
+ name Expression3
+ selected true
+ xpos -21465
+ ypos 17978
+}
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge38
+ selected true
+ xpos -21465
+ ypos 18057
+}
+Invert {
+ name Invert2
+ selected true
+ xpos -21465
+ ypos 18163
+}
+Clamp {
+ name Clamp2
+ selected true
+ xpos -21465
+ ypos 18225
+}
+set Nff121400 [stack 0]
+Dot {
+ name Dot62
+ selected true
+ xpos -21431
+ ypos 18406
+}
+push $Nff121400
+push $N3a265c00
+Merge2 {
+ inputs 2
+ operation stencil
+ name Merge40
+ selected true
+ xpos -21342
+ ypos 18231
+}
+Dot {
+ name Dot61
+ selected true
+ xpos -21308
+ ypos 18326
+}
+push $Ncef12000
+Merge2 {
+ inputs 2
+ operation from
+ name Merge41
+ selected true
+ xpos -21248
+ ypos 18323
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy6
+ selected true
+ xpos -21248
+ ypos 18397
+}
+CheckerBoard2 {
+ inputs 0
+ format "3840 2160 0 0 3840 2160 1 UHD_4K"
+ name CheckerBoard1
+ selected true
+ xpos -21419
+ ypos 18454
+}
+Merge2 {
+ inputs 2
+ name Merge42
+ selected true
+ xpos -21248
+ ypos 18478
+}
+MergeExpression {
+ inputs 0
+ expr3 "(Ag-Ar*rw-Ab*gbw)<=0 ? 1:clamp(1-(Ag-Ar*rw-Ab*gbw)/(Bg-Br*rw-Bb*gbw))"
+ name MergeExpression6
+ tile_color 0x990000
+ label "IBKGizmo\nGREEN"
+ selected true
+ xpos -21181
+ ypos 18872
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
+push $N1ebf4400
+PostageStamp {
+ name PostageStamp5
+ selected true
+ xpos -20959
+ ypos 18167
+ postage_stamp true
+}
+set N1368d400 [stack 0]
+push $N1ebf4800
+PostageStamp {
+ name PostageStamp4
+ selected true
+ xpos -20800
+ ypos 18191
+ postage_stamp true
+}
+set N1368d800 [stack 0]
+IBKGizmoV3 {
+ inputs 2
+ name IBKGizmoV3_2
+ xpos -20800
+ ypos 18471
+ st C-green
+}
+Constant {
+ inputs 0
+ channels rgb
+ color {0.09108 0.192924 0.636 0}
+ color_panelDropped true
+ format "3840 2160 0 0 3840 2160 1 UHD_4K"
+ name Constant4
+ selected true
+ xpos -20511
+ ypos 17563
+}
+push $N1368d800
+push $N1368d400
+MergeExpression {
+ inputs 2
+ temp_name0 aa
+ temp_expr0 "(Ag-Ar*rw-Ab*gbw)<=0 ? 1:clamp(1-(Ag-Ar*rw-Ab*gbw)/(Bg-Br*rw-Bb*gbw))"
+ expr0 "Ar - Br*(1-aa)"
+ expr1 "Ag - Bg*(1-aa)"
+ expr2 "Ab - Bb*(1-aa)"
+ expr3 aa
+ name MergeExpression4
+ tile_color 0x990000
+ label "IBKGizmo\nGREEN"
+ selected true
+ xpos -20959
+ ypos 18490
+ addUserKnob {20 IBKGizmo}
+ addUserKnob {26 message l "<i>Connect B to clean plate, A to fg"}
+ addUserKnob {7 rw l "red weight"}
+ rw 0.5
+ addUserKnob {7 gbw l "green/blue weight"}
+ gbw 0.5
+}
