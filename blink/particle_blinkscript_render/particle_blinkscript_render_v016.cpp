@@ -431,7 +431,7 @@ kernel ParticleRenderKernel : ImageComputationKernel<ePixelWise>{
         float blur_length = length(blur_vector);
 
         // adaptive steps
-        int steps = max(0 ,min(_maxSteps, ceil(blur_length/min(size_start, size_end)*2.0/spacing)));
+        int steps = max(0 ,min(_maxSteps, int(ceil(blur_length/min(size_start, size_end)*2.0/spacing))));
         float2 step = blur_vector/float(steps);
 
 
